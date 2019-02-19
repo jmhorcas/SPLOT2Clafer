@@ -111,8 +111,10 @@ public class SPLOT2Clafer {
 			f = f.replaceAll("~", "not ");
 			f = f.replaceAll(" or ", " || ");
 			for (BooleanVariable v : formula.getVariables()) {
-				f = f.replaceAll(v.getID(), cleanName(v.getID()));
+				String name = featureModel.getNodeByID(v.getID()).getName();
+				f = f.replaceAll(v.getID(), cleanName(name));
 			}
+			
 			System.out.println(f);
 		}
 	}
